@@ -94,26 +94,35 @@ function App() {
   };
 
   return (
-    <div style={{ padding: 20, fontFamily: "Arial" }}>
-      <h1>🛒 Flipkart Clone</h1>
-
+    <div className="p-5 font-sans">
       {/* ✅ Add Product Form */}
+      <h1 className="text-3xl font-bold underline text-blue-600">
+        🛒 Flipkart Clone
+      </h1>
+
       <form onSubmit={handleAddProduct} style={{ marginBottom: "20px" }}>
-        <input name="name" placeholder="Product Name" required />
         <input
-          name="price"
-          type="number"
-          placeholder="Price"
+          name="name"
+          placeholder="Product Name"
           required
-          style={{ marginLeft: 10 }}
+          className="border p-2 rounded w-full mb-2"
         />
         <input
-          name="image"
-          placeholder="Image URL"
+          name="name"
+          placeholder="Product Name"
           required
-          style={{ marginLeft: 10 }}
+          className="border p-2 rounded w-full mb-2"
         />
-        <button type="submit" style={{ marginLeft: 10 }}>
+        <input
+          name="name"
+          placeholder="Product Name"
+          required
+          className="border p-2 rounded w-full mb-2"
+        />
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
           Add Product
         </button>
       </form>
@@ -122,26 +131,19 @@ function App() {
       <button onClick={handleClearProducts}>🧹 Clear Products</button>
 
       {/* ✅ Product List */}
-      <div style={{ display: "flex", flexWrap: "wrap", marginTop: 20 }}>
+      <div className="flex flexWrap gap-4 justify-center mt-5">
         {loading ? (
           <p>Loading products...</p>
         ) : products.length === 0 ? (
           <p>No products found.</p>
         ) : (
           products.map((product) => (
-            <div
-              key={product._id || product.name}
-              style={{
-                border: "1px solid #ccc",
-                margin: 10,
-                padding: 10,
-                width: 200,
-              }}
-            >
+            <div key={product._id || product.name}>
               <img
                 src={product.image}
                 alt={product.name}
-                style={{ width: "100%", height: 120, objectFit: "cover" }}
+                className="w-full h-[120px] object-cover rounded"
+                className="border border-gray-300 m-2 p-4 w-52 shadow-md rounded"
               />
               <h3>{product.name}</h3>
               <p>₹{product.price}</p>
